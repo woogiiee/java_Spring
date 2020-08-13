@@ -25,6 +25,31 @@
 	
 	<context:component-scan base-package="edu.bit.board.controller" />
 	
+	
+	
+	<!-- 인터셉터 객체 생성 -->
+	<beans:bean id="boardInterceptor" class="edu.bit.board.interceptor.BoardInterceptor">
+	</beans:bean>
+	
+	<!-- Interceptor 설정 -->
+	<interceptors>
+	    <interceptor>
+	        <mapping path="/list"/>         <!-- 이걸로 치고 들어오는 것들은 boardInterceptor 객체를 거쳐서 들어와라 -->
+	        <exclude-mapping path="/resources/**"/>
+	        <beans:ref bean="boardInterceptor"/>
+	        
+	    </interceptor>
+	</interceptors>
+	
+	<!-- <interceptors>
+	    <interceptor>
+	        <mapping path="/area"/>
+	        <exclude-mapping path="/user/**"/>
+	        <exclude-mapping path="/admin/**"/>
+	        <beans:ref bean="boardInterceptor"/>
+	    </interceptor>
+	</interceptors> 내가 만들었는데 안되는것-->
+	
 	<!-- AOP설정 -->
 	<aop:config>
 		<aop:aspect ref="logAdvice">

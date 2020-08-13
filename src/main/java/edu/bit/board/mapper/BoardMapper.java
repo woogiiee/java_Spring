@@ -13,7 +13,7 @@ public interface BoardMapper {
 	public abstract BoardVO read(int bno);
 	
 	@Delete("Delete from mvc_board where bId = #{bno}")//간단한 것은 이렇게 해도 상관없다.
-	public abstract void delete(int bno);
+	public abstract int delete(int bno);
 
 	
 	public abstract void insertBoard(BoardVO boardVO);

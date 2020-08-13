@@ -67,13 +67,10 @@
 						}
 						
 					 $("#ajaxList").append(htmls);
-				},
 				
 				
-				error: function(request, status, error){
-					alert("실패");
-					console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-					
+				
+				
 				}
 				
 				

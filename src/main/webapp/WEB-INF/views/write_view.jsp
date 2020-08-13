@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<table width="500" cellpadding="0" cellspacing="0" border="1">
+	<table width="500" cellpadding="0" cellspacing="0" border="1" align="center">
 		<form action="write" method="post">
 			<tr>
 				<td> 이름 </td>

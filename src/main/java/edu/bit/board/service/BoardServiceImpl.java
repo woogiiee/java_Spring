@@ -3,6 +3,7 @@ package edu.bit.board.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.bit.board.mapper.BoardMapper;
 import edu.bit.board.vo.BoardVO;
@@ -35,10 +36,10 @@ public class BoardServiceImpl implements BoardService{
 
 
 	@Override
-	public void remove(int bno) {
+	public int remove(int bno) {
 		log.info("remove.........");
 		
-		mapper.delete(bno);
+		return mapper.delete(bno);
 	}
 
 
@@ -50,7 +51,7 @@ public class BoardServiceImpl implements BoardService{
 		mapper.insertBoard(boardVO);
 	}
 
-
+	@Transactional(rollbackFor = Exception.class)
 	@Override
 	public void writeReply(BoardVO boardVO) {
 		mapper.updateShape(boardVO);

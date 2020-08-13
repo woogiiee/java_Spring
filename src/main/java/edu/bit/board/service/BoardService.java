@@ -9,7 +9,7 @@ public interface BoardService {
 
 	public abstract BoardVO get(int bno);
 
-	public abstract void remove(int bno);
+	public abstract int remove(int bno);
 
 	public abstract void writeBoard(BoardVO boardVO);
 
